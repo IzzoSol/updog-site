@@ -100,9 +100,14 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* the dog, framed in a cabin window, floating through the cloud layer */}
+      {/* the dog, framed in a cabin window, resting on a big soft cloud */}
       <div className="relative z-[4] flex justify-center">
+        <Cloud
+          variant="fore"
+          className="pointer-events-none absolute bottom-[-10%] left-1/2 w-[min(130vw,760px)] max-w-none -translate-x-1/2 opacity-95"
+        />
         <motion.div
+          className="relative"
           animate={reduce ? undefined : { y: [0, -14, 0] }}
           transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
         >

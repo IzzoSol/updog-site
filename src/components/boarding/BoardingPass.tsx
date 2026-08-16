@@ -4,6 +4,7 @@ import { useCallback, useRef, useState } from "react";
 import { toPng } from "html-to-image";
 import { content } from "@/config/site";
 import { CloudBank } from "@/components/clouds/CloudBank";
+import { DriftClouds } from "@/components/clouds/DriftClouds";
 import { SectionTag, SectionHeading } from "@/components/ui/SectionHeading";
 import { UpdogArrow } from "@/components/arrows/UpdogArrow";
 import { UpdogButton } from "@/components/ui/UpdogButton";
@@ -105,6 +106,7 @@ export function BoardingPass() {
       style={{ background: "linear-gradient(180deg, #BFE4FF 0%, #D9F0FF 50%, #BFE4FF 100%)" }}
     >
       <CloudBank tint="#EAF6FF" className="absolute inset-x-0 -top-16 sm:-top-24" />
+      <DriftClouds />
 
       <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-24 sm:pt-28">
         <div className="flex flex-col items-center">

@@ -4,6 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { content, siteConfig } from "@/config/site";
 import { CloudBank } from "@/components/clouds/CloudBank";
+import { DriftClouds } from "@/components/clouds/DriftClouds";
 import { SectionTag, SectionHeading } from "@/components/ui/SectionHeading";
 import { UpdogButton } from "@/components/ui/UpdogButton";
 import { UpdogArrow } from "@/components/arrows/UpdogArrow";
@@ -49,6 +50,7 @@ export function ShareDog() {
       style={{ background: "linear-gradient(180deg, #CFEBFF 0%, #BFE4FF 100%)" }}
     >
       <CloudBank tint="#CFEBFF" className="absolute inset-x-0 -top-16 sm:-top-24" />
+      <DriftClouds />
 
       <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-24 sm:pt-28">
         <div className="flex flex-col items-center">

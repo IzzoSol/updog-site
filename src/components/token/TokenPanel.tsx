@@ -103,7 +103,7 @@ export function TokenPanel() {
         {/* cloud island + coin (the ticker dog struck as a token) */}
         <div className="relative flex items-center justify-center" aria-hidden="true">
           <Cloud variant="fore" className="absolute bottom-[-2%] left-1/2 w-[118%] max-w-none -translate-x-1/2 opacity-90" />
-          <div className="animate-floaty relative w-[min(64vw,320px)]">
+          <div className="animate-floaty relative w-[min(82vw,440px)]">
             <div
               className="relative aspect-square rounded-full p-[7%] shadow-coin"
               style={{ background: "conic-gradient(from 210deg, #0E7EE0, #6CC8FF, #EAF6FF, #4FA8FF, #0E7EE0)" }}

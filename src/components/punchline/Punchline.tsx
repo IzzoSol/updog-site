@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { content } from "@/config/site";
 import { Cloud } from "@/components/clouds/Cloud";
 import { CloudBank } from "@/components/clouds/CloudBank";
+import { DriftClouds } from "@/components/clouds/DriftClouds";
 import { DogPortrait } from "@/components/mascot/DogPortrait";
 import { SoundToggle } from "@/components/sound/SoundToggle";
 import { SectionTag, SectionHeading } from "@/components/ui/SectionHeading";
@@ -58,6 +59,7 @@ export function Punchline() {
       style={{ background: "linear-gradient(180deg, #BDE4FF 0%, #DCF3FF 40%, #F8FCFF 100%)" }}
     >
       <CloudBank tint="#BDE4FF" className="absolute inset-x-0 -top-16 sm:-top-24" />
+      <DriftClouds />
 
       <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-24 sm:pt-28">
         <div className="flex flex-col items-center">
