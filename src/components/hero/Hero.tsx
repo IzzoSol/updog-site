@@ -37,7 +37,7 @@ export function Hero() {
       {/* cinematic cloud + arrow sky (static image — no per-frame work) */}
       <div className="absolute inset-0 z-[1]" aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={content.assets.heroSky} alt="" className="h-full w-full object-cover object-center" />
+        <img src={content.assets.heroSky} alt="" className="animate-ken h-full w-full object-cover object-center" />
       </div>
       {/* legibility tint on top, fade to the next section's sky at the bottom */}
       <div

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { UpdogArrow } from "@/components/arrows/UpdogArrow";
+import { CodeGate } from "@/components/ui/CodeGate";
 
 export const metadata: Metadata = {
   title: "Dogpaper",
@@ -71,6 +72,7 @@ export default function DogpaperPage() {
           </p>
         </header>
 
+        <CodeGate>
         {/* 1 */}
         <H tag="Preflight">1 · What Is $UPDOG?</H>
         <Card>
@@ -229,6 +231,7 @@ export default function DogpaperPage() {
           <Paw size={34} />
           <Paw size={26} />
         </div>
+        </CodeGate>
       </article>
     </main>
   );

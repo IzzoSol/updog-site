@@ -8,16 +8,15 @@ import { SectionTag, SectionHeading } from "@/components/ui/SectionHeading";
 import { UpdogArrow } from "@/components/arrows/UpdogArrow";
 import { UpdogButton } from "@/components/ui/UpdogButton";
 
+const DOG_NAMES = [
+  "goldenretriever", "husky", "corgi", "shiba", "dalmatian", "pug", "shepherd", "beagle",
+  "poodle", "dachshund", "boxer", "bulldog", "chihuahua", "collie", "aussie", "greatdane",
+  "samoyed", "cocker", "pomeranian", "mastiff", "terrier", "malamute", "bernese", "cavalier",
+  "doberman", "whippet", "akita", "basset", "weimaraner", "vizsla", "newf", "saint", "rottweiler",
+];
 const DOGS = [
-  "/assets/gen/pfp-goldenretriever.png",
-  "/assets/gen/pfp-husky.png",
-  "/assets/gen/pfp-corgi.png",
-  "/assets/gen/pfp-shiba.png",
-  "/assets/gen/pfp-dalmatian.png",
-  "/assets/gen/pfp-pug.png",
-  "/assets/gen/pfp-shepherd.png",
-  "/assets/gen/pfp-beagle.png",
   "/assets/brand/updog-ticker.jpg",
+  ...DOG_NAMES.map((n) => `/assets/gen/pfp-${n}.png`),
 ];
 
 function fileToDataUrl(file: File, max = 900): Promise<string> {
