@@ -58,6 +58,12 @@ export default function DogpaperPage() {
       </div>
 
       <article className="relative mx-auto max-w-3xl px-5">
+        <a
+          href="/"
+          className="mb-8 inline-flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-sm font-extrabold text-navy shadow-cloudSm transition-transform hover:-translate-y-0.5"
+        >
+          <span aria-hidden="true">←</span> Home
+        </a>
         {/* title */}
         <header className="text-center">
           <p className="inline-flex items-center gap-2 rounded-full border border-navy/15 bg-white/80 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.25em] text-navy/70">

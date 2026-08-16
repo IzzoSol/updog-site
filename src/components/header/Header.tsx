@@ -5,14 +5,14 @@ import { content, siteConfig } from "@/config/site";
 import { SoundToggle } from "@/components/sound/SoundToggle";
 
 const NAV = [
-  { href: "#why", label: "Why" },
-  { href: "#flight-status", label: "Flight" },
-  { href: "#token", label: "Token" },
-  { href: "#flight-plan", label: "Plan" },
-  { href: "#pack", label: "Pack" },
-  { href: "#pfp", label: "PFP" },
-  { href: "#boarding-pass", label: "Ticket" },
-  { href: "#signal", label: "Share" },
+  { href: "/#why", label: "Why" },
+  { href: "/#flight-status", label: "Flight" },
+  { href: "/#token", label: "Token" },
+  { href: "/#flight-plan", label: "Plan" },
+  { href: "/#pack", label: "Pack" },
+  { href: "/#pfp", label: "PFP" },
+  { href: "/#boarding-pass", label: "Ticket" },
+  { href: "/#signal", label: "Share" },
   { href: "/dogpaper", label: "Dogpaper" },
 ];
 
@@ -55,9 +55,9 @@ export function Header() {
         />
         <div className="absolute inset-0 bg-white/10" />
         <a
-          href="#top"
+          href="/#top"
           className="relative mx-auto flex h-full max-w-6xl items-center px-4"
-          aria-label={`${siteConfig.siteName} — back to top`}
+          aria-label={`${siteConfig.siteName} — home`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
