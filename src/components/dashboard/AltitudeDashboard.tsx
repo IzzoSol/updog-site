@@ -17,7 +17,7 @@ export function AltitudeDashboard() {
 
   return (
     <section id="flight-status" aria-labelledby="flight-heading" className="relative scroll-mt-24" style={{ background: "linear-gradient(180deg, #EAF6FF 0%, #EFF9FF 100%)" }}>
-      <CloudBank tint="#EAF6FF" className="absolute inset-x-0 -top-16 sm:-top-24" />
+      <CloudBank tint="#BFE4FF" className="absolute inset-x-0 -top-16 sm:-top-24" />
 
       <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-36 sm:pt-44">
         <div className="flex flex-col items-center">

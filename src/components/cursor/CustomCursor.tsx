@@ -45,6 +45,7 @@ export function CustomCursor() {
     let hidden = true;
     let keyboard = false;
     let raf = 0;
+    let running = true;
 
     const paint = () => {
       cx += (tx - cx) * LERP;
@@ -54,7 +55,18 @@ export function CustomCursor() {
         down ? scale * 0.88 : scale
       })`;
       el.style.opacity = hidden || keyboard ? "0" : "1";
+      // Settle → stop the loop entirely until the next pointer movement (saves FPS).
+      if (!down && Math.abs(tx - cx) < 0.1 && Math.abs(ty - cy) < 0.1) {
+        running = false;
+        return;
+      }
       raf = requestAnimationFrame(paint);
+    };
+    const ensureRunning = () => {
+      if (!running) {
+        running = true;
+        raf = requestAnimationFrame(paint);
+      }
     };
 
     const classify = (target: EventTarget | null) => {
@@ -77,16 +89,19 @@ export function CustomCursor() {
       tx = e.clientX;
       ty = e.clientY;
       classify(e.target);
+      ensureRunning();
     };
 
     const onOver = (e: PointerEvent) => {
       hidden = false;
       classify(e.target);
       if (mascot && !textMode && !disabled && !keyboard) triggerPuff(tx, ty);
+      ensureRunning();
     };
 
     const onDown = () => {
       down = true;
+      ensureRunning();
     };
     const onUp = () => {
       down = false;

@@ -88,9 +88,9 @@ body {
     0 8px 22px rgba(255, 255, 255, 0.4);
 }
 
-/* Section scroll offset under fixed header */
+/* Section scroll offset under the fixed two-row header */
 .scroll-mt-24 {
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 8.5rem;
 }
 
 /* ------------------------------------------------------------------ */

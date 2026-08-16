@@ -104,7 +104,7 @@ export function BoardingPass() {
       className="relative scroll-mt-24 overflow-hidden"
       style={{ background: "linear-gradient(180deg, #BFE4FF 0%, #D9F0FF 50%, #BFE4FF 100%)" }}
     >
-      <CloudBank tint="#BFE4FF" className="absolute inset-x-0 -top-16 sm:-top-24" />
+      <CloudBank tint="#EAF6FF" className="absolute inset-x-0 -top-16 sm:-top-24" />
 
       <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-36 sm:pt-44">
         <div className="flex flex-col items-center">

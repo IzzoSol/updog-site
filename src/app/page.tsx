@@ -23,12 +23,12 @@ export default function Page() {
       <Hero />
       <Punchline />
       <WhyUpdog />
+      <BoardingPass />
       <AltitudeDashboard />
       <TokenPanel />
       <FlightPlan />
       <Gallery />
       <ShareDog />
-      <BoardingPass />
       <FinalCta />
     </>
   );
