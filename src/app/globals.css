@@ -217,6 +217,22 @@ body {
   animation: drift 72s ease-in-out infinite alternate-reverse;
 }
 
+/* Boarding-pass shine sweep */
+.boarding-shine {
+  background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%);
+  transform: translateX(-160%) skewX(-14deg);
+  animation: boarding-shine 5s ease-in-out infinite;
+}
+@keyframes boarding-shine {
+  0%,
+  60% {
+    transform: translateX(-160%) skewX(-14deg);
+  }
+  100% {
+    transform: translateX(420%) skewX(-14deg);
+  }
+}
+
 /* ------------------------------------------------------------------ */
 /* Scroll "flight path" progress (right edge) — pure CSS scroll timeline */
 /* ------------------------------------------------------------------ */

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { toPng } from "html-to-image";
 import { content } from "@/config/site";
 import { CloudBank } from "@/components/clouds/CloudBank";
@@ -193,12 +194,22 @@ export function BoardingPass() {
 
           {/* live pass */}
           <div className="order-1 flex justify-center lg:order-2">
-            <div className="w-full max-w-md rounded-[28px] bg-white/40 p-3 shadow-cloud">
-              <div ref={passRef} className="overflow-hidden rounded-[22px]" style={{ background: t.bodyBg }}>
+            <motion.div
+              className="group relative w-full max-w-md rounded-[28px] bg-white/40 p-3 shadow-cloud"
+              style={{ perspective: 1000 }}
+              whileHover={{ y: -6, rotate: -1.2, scale: 1.015 }}
+              transition={{ type: "spring", stiffness: 220, damping: 18 }}
+            >
+              {/* shine sweep (preview flourish — not part of the exported ticket) */}
+              <span className="pointer-events-none absolute inset-0 z-10 overflow-hidden rounded-[28px]" aria-hidden="true">
+                <span className="boarding-shine absolute top-0 h-full w-1/3" />
+              </span>
+              <div ref={passRef} className="relative overflow-hidden rounded-[22px]" style={{ background: t.bodyBg }}>
                 {/* header */}
                 <div className="flex items-center justify-between px-5 py-3.5" style={{ background: t.headerBg, color: t.headerText }}>
                   <span className="flex items-center gap-2 font-display text-sm font-extrabold uppercase tracking-[0.16em]">
-                    <UpdogArrow size={16} />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={content.assets.ticker} alt="" className="h-6 w-6 rounded-full object-cover ring-1 ring-white/50" />
                     {B.airline}
                   </span>
                   <span className="text-[11px] font-extrabold uppercase tracking-[0.2em]" style={{ color: t.accent }}>
@@ -252,7 +263,7 @@ export function BoardingPass() {
                   {B.footnote}
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
