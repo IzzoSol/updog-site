@@ -25,7 +25,7 @@ export function Gallery() {
     >
       <CloudBank tint="#A9D9FF" className="absolute inset-x-0 -top-16 sm:-top-24" />
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-36 sm:pt-44">
+      <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-24 sm:pt-28">
         <div className="flex justify-center">
           <SectionTag>{G.label}</SectionTag>
         </div>

@@ -20,7 +20,7 @@ export function WhyUpdog() {
     <section id="why" aria-labelledby="why-heading" className="relative scroll-mt-24 bg-cloud-soft">
       <CloudBank tint="#F8FCFF" className="absolute inset-x-0 -top-16 sm:-top-24" />
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-36 sm:pt-44">
+      <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-24 sm:pt-28">
         <div className="flex flex-col items-center">
           <SectionTag>{content.why.label}</SectionTag>
           <SectionHeading id="why-heading" sub={content.why.sub} className="mt-6">

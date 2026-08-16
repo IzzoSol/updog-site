@@ -35,7 +35,7 @@ export function FinalCta() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-32 pt-36 sm:pt-44">
+      <div className="relative mx-auto max-w-6xl px-4 pb-32 pt-24 sm:pt-28">
         <div className="flex flex-col items-center text-center">
           <motion.div initial={false}>
             <div className="animate-bob mb-4 inline-block">

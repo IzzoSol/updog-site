@@ -58,9 +58,9 @@ export function Header() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={content.assets.wordmark}
+            src={content.assets.banner}
             alt={siteConfig.siteName}
-            className="h-[66%] w-auto object-contain drop-shadow-[0_2px_8px_rgba(6,38,92,0.3)]"
+            className="h-[78%] w-auto rounded-lg object-contain shadow-cloudSm ring-1 ring-white/50"
           />
         </a>
       </div>

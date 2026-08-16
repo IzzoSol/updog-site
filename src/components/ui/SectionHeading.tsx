@@ -30,11 +30,14 @@ export function SectionHeading({
   id?: string;
 }) {
   return (
-    <div className={`mx-auto max-w-3xl text-center ${className}`}>
-      <h2 id={id} className="font-display text-4xl font-extrabold leading-[0.98] tracking-tight text-navy text-shadow-white sm:text-6xl">
+    <div className={`mx-auto max-w-4xl text-center ${className}`}>
+      <h2
+        id={id}
+        className="font-display text-[clamp(2.75rem,7vw,5.5rem)] font-extrabold leading-[0.95] tracking-tight text-navy text-shadow-white"
+      >
         {children}
       </h2>
-      {sub ? <p className="mt-4 text-base font-semibold text-navy/70 sm:text-lg">{sub}</p> : null}
+      {sub ? <p className="mx-auto mt-5 max-w-2xl text-lg font-semibold text-navy/70 sm:text-xl">{sub}</p> : null}
     </div>
   );
 }

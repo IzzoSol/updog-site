@@ -50,7 +50,7 @@ export function ShareDog() {
     >
       <CloudBank tint="#CFEBFF" className="absolute inset-x-0 -top-16 sm:-top-24" />
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-36 sm:pt-44">
+      <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-24 sm:pt-28">
         <div className="flex flex-col items-center">
           <SectionTag>{S.label}</SectionTag>
           <SectionHeading id="signal-heading" sub={S.sub} className="mt-6">

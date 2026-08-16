@@ -24,7 +24,7 @@ export function TokenPanel() {
     <section id="token" aria-labelledby="token-heading" className="relative scroll-mt-24 overflow-hidden" style={{ background: "linear-gradient(180deg, #D6F0FF 0%, #BDE4FF 100%)" }}>
       <CloudBank tint="#EFF9FF" className="absolute inset-x-0 -top-16 sm:-top-24" />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pb-28 pt-36 sm:pt-44 lg:grid-cols-2">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pb-28 pt-24 sm:pt-28 lg:grid-cols-2">
         {/* copy + fields */}
         <div className="flex flex-col items-start gap-6">
           <SectionTag>{T.label}</SectionTag>
