@@ -121,6 +121,15 @@ export function PfpGenerator() {
               >
                 <UpdogArrow className="h-full w-full" />
               </div>
+              {/* $UPDOG watermark — baked into the downloaded PFP */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-center bg-gradient-to-t from-black/55 via-black/10 to-transparent pb-3.5 pt-12">
+                <span
+                  className="font-display text-2xl font-extrabold uppercase tracking-[0.12em] text-white sm:text-3xl"
+                  style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6), 0 0 2px rgba(0,0,0,0.5)" }}
+                >
+                  $UPDOG
+                </span>
+              </div>
             </div>
           </div>
 
