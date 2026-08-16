@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { content } from "@/config/site";
 import { CloudBank } from "@/components/clouds/CloudBank";
 import { SectionTag, SectionHeading } from "@/components/ui/SectionHeading";
+import { UpdogArrow } from "@/components/arrows/UpdogArrow";
 
 const D = content.dashboard;
 
@@ -14,6 +16,16 @@ const D = content.dashboard;
  */
 export function AltitudeDashboard() {
   const marqueeItems = [...D.marquee, ...D.marquee];
+
+  // Live altimeter — climbs only while the board is on screen.
+  const [alt, setAlt] = useState(33333);
+  const altRef = useRef<HTMLDivElement>(null);
+  const altInView = useInView(altRef, { amount: 0.2 });
+  useEffect(() => {
+    if (!altInView) return;
+    const id = setInterval(() => setAlt((a) => a + (Math.floor(Math.random() * 6) + 1) * 10), 90);
+    return () => clearInterval(id);
+  }, [altInView]);
 
   return (
     <section id="flight-status" aria-labelledby="flight-heading" className="relative scroll-mt-24" style={{ background: "linear-gradient(180deg, #EAF6FF 0%, #EFF9FF 100%)" }}>
@@ -78,6 +90,15 @@ export function AltitudeDashboard() {
               <p className="rounded-full bg-green/15 px-3 py-1 text-[11px] font-extrabold uppercase tracking-widest text-green">
                 {D.headerState}
               </p>
+            </div>
+
+            {/* live altimeter */}
+            <div ref={altRef} className="mb-3 flex items-center justify-between rounded-xl border border-green/20 bg-black/25 px-4 py-2.5">
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-white/55">LIVE ALTITUDE</span>
+              <span className="font-display text-lg font-extrabold tabular-nums text-green sm:text-xl">
+                {alt.toLocaleString()} <span className="text-xs font-bold text-white/45">FT</span>
+                <UpdogArrow size={15} className="ml-1.5 inline-block align-[-2px]" />
+              </span>
             </div>
 
             {/* split-flap rows */}

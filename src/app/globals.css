@@ -213,6 +213,52 @@ body {
 .animate-spin-slow {
   animation: spin-slow 26s linear infinite;
 }
+.animate-drift-2 {
+  animation: drift 72s ease-in-out infinite alternate-reverse;
+}
+
+/* ------------------------------------------------------------------ */
+/* Scroll "flight path" progress (right edge) — pure CSS scroll timeline */
+/* ------------------------------------------------------------------ */
+.scroll-flight {
+  position: fixed;
+  right: 14px;
+  top: 22%;
+  bottom: 12%;
+  width: 3px;
+  z-index: 40;
+  border-radius: 3px;
+  background: repeating-linear-gradient(rgba(6, 38, 92, 0.28) 0 6px, transparent 6px 15px);
+  pointer-events: none;
+}
+.scroll-flight__arrow {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  margin-left: -13px;
+  filter: drop-shadow(0 3px 6px rgba(6, 38, 92, 0.35));
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-flight__arrow {
+    animation: flight-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes flight-progress {
+  from {
+    top: 0;
+  }
+  to {
+    top: calc(100% - 26px);
+  }
+}
+@media (max-width: 640px) {
+  .scroll-flight {
+    display: none;
+  }
+}
 
 /* ------------------------------------------------------------------ */
 /* Custom cursor (desktop, fine pointer only)                          */

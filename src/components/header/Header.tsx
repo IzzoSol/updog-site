@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { content, siteConfig } from "@/config/site";
 import { SoundToggle } from "@/components/sound/SoundToggle";
 
@@ -19,10 +20,30 @@ const NAV = [
  * beneath. Static image = no per-frame cost.
  */
 export function Header() {
+  const [collapsed, setCollapsed] = useState(false);
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setCollapsed(window.scrollY > 90);
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 [transform:translateZ(0)]">
-      {/* full-width banner masthead: clouds edge-to-edge with the wordmark on top */}
-      <div className="relative h-16 w-full overflow-hidden bg-sky-pale sm:h-20">
+      {/* full-width banner masthead: collapses to just the tabs once you scroll */}
+      <div
+        className={`relative w-full overflow-hidden bg-sky-pale transition-all duration-300 ${
+          collapsed ? "h-0 opacity-0" : "h-16 opacity-100 sm:h-20"
+        }`}
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={content.assets.headerClouds}

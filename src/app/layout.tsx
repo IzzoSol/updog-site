@@ -7,6 +7,7 @@ import { Header } from "@/components/header/Header";
 import { Footer } from "@/components/footer/Footer";
 import { Preloader } from "@/components/preloader/Preloader";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
+import { ScrollFlightPath } from "@/components/ui/ScrollFlightPath";
 
 /**
  * Typography — a rounded, toy-like pairing that matches the puffy sky world:
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Preloader />
           <CustomCursor />
           <Header />
+          <ScrollFlightPath />
           <main id="content">{children}</main>
           <Footer />
         </SoundProvider>

@@ -58,13 +58,14 @@ async function tryHF(prompt, ratio) {
   return null;
 }
 
-async function tryFal(prompt, ratio) {
+async function tryFal(prompt, ratio, w, h) {
   const key = process.env.FAL_KEY;
   if (!key) return null;
+  const image_size = w && h ? { width: Number(w), height: Number(h) } : ratio || "landscape_16_9";
   const res = await fetch("https://fal.run/fal-ai/flux/schnell", {
     method: "POST",
     headers: { Authorization: `Key ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ prompt, image_size: ratio || "landscape_16_9", num_inference_steps: 4, num_images: 1 }),
+    body: JSON.stringify({ prompt, image_size, num_inference_steps: 4, num_images: 1 }),
   });
   if (!res.ok) throw new Error(`fal ${res.status}: ${await res.text()}`);
   const data = await res.json();
@@ -87,7 +88,7 @@ async function main() {
   let via = "HF FLUX.1-schnell";
   if (!bin) {
     console.log("  HF unavailable — falling back to fal.ai");
-    bin = await tryFal(args.prompt, ratio);
+    bin = await tryFal(args.prompt, ratio, args.width, args.height);
     via = "fal.ai FLUX schnell";
   }
   if (!bin) throw new Error("No image produced by any provider");

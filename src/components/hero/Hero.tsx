@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { content, siteConfig } from "@/config/site";
 import { DogPortrait } from "@/components/mascot/DogPortrait";
+import { Cloud } from "@/components/clouds/Cloud";
 import { UpdogButton } from "@/components/ui/UpdogButton";
 import { UpdogArrow } from "@/components/arrows/UpdogArrow";
 
@@ -47,6 +48,13 @@ export function Hero() {
             "linear-gradient(180deg, rgba(21,155,255,0.20) 0%, rgba(21,155,255,0.03) 24%, rgba(124,203,255,0.06) 64%, rgba(189,228,255,0.85) 92%, #BDE4FF 100%)",
         }}
       />
+
+      {/* drifting cloud depth layer — CSS transform only, no per-frame JS */}
+      <div className="pointer-events-none absolute inset-0 z-[2] overflow-hidden" aria-hidden="true">
+        <Cloud variant="fore" className="animate-drift absolute -left-[10%] top-[15%] w-[46%] max-w-none opacity-90" />
+        <Cloud variant="mid" className="animate-drift-2 absolute right-[-8%] top-[38%] w-[42%] max-w-none opacity-70" />
+        <Cloud variant="fore" className="animate-drift absolute left-[24%] bottom-[4%] w-[54%] max-w-none opacity-95" style={{ animationDuration: "64s" }} />
+      </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center px-4 pb-4 pt-36 text-center">
         <motion.div {...fade(0.15)}>
