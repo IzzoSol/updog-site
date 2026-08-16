@@ -3,6 +3,7 @@
 import { content, siteConfig } from "@/config/site";
 import { Cloud } from "@/components/clouds/Cloud";
 import { CloudBank } from "@/components/clouds/CloudBank";
+import { DriftClouds } from "@/components/clouds/DriftClouds";
 import { SectionTag, SectionHeading } from "@/components/ui/SectionHeading";
 import { UpdogButton } from "@/components/ui/UpdogButton";
 import { UpdogArrow } from "@/components/arrows/UpdogArrow";
@@ -23,6 +24,7 @@ export function TokenPanel() {
   return (
     <section id="token" aria-labelledby="token-heading" className="relative scroll-mt-24 overflow-hidden" style={{ background: "linear-gradient(180deg, #D6F0FF 0%, #BDE4FF 100%)" }}>
       <CloudBank tint="#EFF9FF" className="absolute inset-x-0 -top-16 sm:-top-24" />
+      <DriftClouds />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pb-28 pt-24 sm:pt-28 lg:grid-cols-2">
         {/* copy + fields */}

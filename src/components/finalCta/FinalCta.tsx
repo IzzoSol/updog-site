@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { content, siteConfig } from "@/config/site";
 import { CloudBank } from "@/components/clouds/CloudBank";
+import { DriftClouds } from "@/components/clouds/DriftClouds";
 import { UpdogButton } from "@/components/ui/UpdogButton";
 import { DogPortrait } from "@/components/mascot/DogPortrait";
 
@@ -27,6 +28,7 @@ export function FinalCta() {
       style={{ background: "linear-gradient(180deg, #BFE4FF 0%, #FFC489 56%, #FF7FA8 100%)" }}
     >
       <CloudBank tint="#BFE4FF" className="absolute inset-x-0 -top-16 sm:-top-24" />
+      <DriftClouds />
 
       {/* soft sun glow behind the pass */}
       <div

@@ -21,6 +21,7 @@ const NAV = [
  */
 export function Header() {
   const [collapsed, setCollapsed] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     let ticking = false;
     const onScroll = () => {
@@ -68,7 +69,8 @@ export function Header() {
       {/* nav tabs, directly under the banner */}
       <div className="border-y border-white/20 bg-navy shadow-cloudSm">
         <div className="mx-auto flex h-11 max-w-6xl items-center justify-between px-4">
-          <nav aria-label="Primary" className="flex items-center gap-0.5 overflow-x-auto">
+          {/* desktop tabs */}
+          <nav aria-label="Primary" className="hidden items-center gap-0.5 md:flex">
             {NAV.map((item) => (
               <a
                 key={item.href}
@@ -79,6 +81,24 @@ export function Header() {
               </a>
             ))}
           </nav>
+
+          {/* mobile hamburger */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-expanded={menuOpen}
+            aria-label="Toggle menu"
+            className="flex items-center gap-2 rounded-full px-2 py-1.5 text-white md:hidden"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              {menuOpen ? (
+                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+              )}
+            </svg>
+            <span className="text-sm font-extrabold uppercase tracking-wider">Menu</span>
+          </button>
 
           <div className="ml-3 flex shrink-0 items-center gap-2.5">
             <SoundToggle />
@@ -101,6 +121,24 @@ export function Header() {
             </a>
           </div>
         </div>
+
+        {/* mobile dropdown menu */}
+        {menuOpen ? (
+          <nav aria-label="Mobile navigation" className="border-t border-white/10 bg-navy px-3 pb-3 pt-1 md:hidden">
+            <div className="grid grid-cols-2 gap-1.5">
+              {NAV.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-xl bg-white/5 px-3 py-2.5 text-center text-sm font-bold text-white/90 transition-colors hover:bg-white/15"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+        ) : null}
       </div>
     </header>
   );

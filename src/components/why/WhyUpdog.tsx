@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { content } from "@/config/site";
 import { CloudBank } from "@/components/clouds/CloudBank";
+import { DriftClouds } from "@/components/clouds/DriftClouds";
 import { SectionTag, SectionHeading } from "@/components/ui/SectionHeading";
 import { UpdogArrow } from "@/components/arrows/UpdogArrow";
 
@@ -19,6 +20,7 @@ export function WhyUpdog() {
   return (
     <section id="why" aria-labelledby="why-heading" className="relative scroll-mt-24 bg-cloud-soft">
       <CloudBank tint="#F8FCFF" className="absolute inset-x-0 -top-16 sm:-top-24" />
+      <DriftClouds />
 
       <div className="relative mx-auto max-w-6xl px-4 pb-28 pt-24 sm:pt-28">
         <div className="flex flex-col items-center">
