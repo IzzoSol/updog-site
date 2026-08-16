@@ -1,0 +1,17 @@
+# Render Blueprint — deploys $UPDOG as a static site (Next.js static export).
+# In Render: New → Blueprint → connect this repo. Render reads this file.
+services:
+  - type: web
+    name: updog
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./out
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    routes:
+      - type: rewrite
+        source: /assets/*
+        destination: /assets/*

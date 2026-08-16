@@ -1,0 +1,360 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Design tokens                                                       */
+/* ------------------------------------------------------------------ */
+:root {
+  --sky: #159bff;
+  --sky-bright: #0e7ee0;
+  --sky-light: #6cc8ff;
+  --sky-pale: #bde4ff;
+  --cloud: #f8fcff;
+  --cloud-soft: #eaf6ff;
+  --green: #00e539;
+  --green-deep: #00b32a;
+  --green-dark: #0a8f24;
+  --navy: #06265c;
+  --navy-soft: #123a7e;
+  --dog: #d99a63;
+  --dog-dark: #b9783f;
+  --sunset-a: #ff9a5c;
+  --sunset-b: #ff6fa5;
+  color-scheme: light;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--cloud-soft);
+  color: var(--navy);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--green);
+  color: var(--navy);
+}
+
+:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 200;
+  background: var(--navy);
+  color: #fff;
+  padding: 0.8rem 1.4rem;
+  border-radius: 0 0 14px 0;
+  font-weight: 700;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* Text shadows for readability over sky */
+.text-shadow-navy {
+  text-shadow:
+    0 3px 0 rgba(6, 38, 92, 0.92),
+    0 10px 26px rgba(6, 38, 92, 0.4);
+}
+.text-shadow-soft {
+  text-shadow:
+    0 2px 0 rgba(6, 38, 92, 0.85),
+    0 6px 18px rgba(6, 38, 92, 0.3);
+}
+.text-shadow-white {
+  text-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.7),
+    0 8px 22px rgba(255, 255, 255, 0.4);
+}
+
+/* Section scroll offset under fixed header */
+.scroll-mt-24 {
+  scroll-margin-top: 6rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Keyframes                                                           */
+/* ------------------------------------------------------------------ */
+@keyframes drift {
+  from {
+    transform: translateX(-3%);
+  }
+  to {
+    transform: translateX(3%);
+  }
+}
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+@keyframes sun-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -180;
+  }
+}
+@keyframes puff-one {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+  25% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(26px, -20px) scale(1.5);
+  }
+}
+@keyframes wisp {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+@keyframes trail-shine {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Animation utility classes                                           */
+/* ------------------------------------------------------------------ */
+.animate-drift {
+  animation: drift 50s ease-in-out infinite alternate;
+}
+.animate-floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+.animate-bob {
+  animation: bob 5.5s ease-in-out infinite;
+}
+.animate-sun {
+  animation: sun-pulse 9s ease-in-out infinite;
+}
+.animate-marquee {
+  animation: marquee 26s linear infinite;
+}
+.animate-dash {
+  animation: dash-flow 7s linear infinite;
+}
+.animate-wisp {
+  animation: wisp 6s ease-in-out infinite;
+}
+.animate-trail-shine {
+  animation: trail-shine 3.5s ease-in-out infinite;
+}
+.animate-spin-slow {
+  animation: spin-slow 26s linear infinite;
+}
+
+/* ------------------------------------------------------------------ */
+/* Custom cursor (desktop, fine pointer only)                          */
+/* ------------------------------------------------------------------ */
+@media (hover: hover) and (pointer: fine) {
+  html.cursor-active,
+  html.cursor-active * {
+    cursor: none !important;
+  }
+  html.cursor-active input,
+  html.cursor-active textarea,
+  html.cursor-active select,
+  html.cursor-active [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
+
+.updog-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 26px;
+  height: 26px;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+}
+.updog-cursor.is-text .core {
+  opacity: 0;
+}
+.updog-cursor.is-disabled .core {
+  opacity: 0.35;
+}
+
+.updog-cursor-puff {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9998;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  opacity: 0;
+}
+.updog-cursor-puff.is-anim {
+  animation: puff-one 0.8s ease-out forwards;
+}
+
+/* ------------------------------------------------------------------ */
+/* Cloud cards (fluffy blob shapes)                                    */
+/* ------------------------------------------------------------------ */
+.cloud-card {
+  position: relative;
+  background:
+    radial-gradient(130% 90% at 50% -12%, #ffffff 0%, #eff7ff 52%, #e0efff 100%);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -22px 44px -30px rgba(6, 38, 92, 0.22),
+    0 36px 64px -28px rgba(6, 38, 92, 0.34),
+    0 14px 28px -18px rgba(6, 38, 92, 0.2);
+}
+/* soft cloud puffs cresting the top edge (behind the card) */
+.cloud-card::before {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  top: -16px;
+  height: 34px;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 100%, #fff 0 20px, transparent 21px),
+    radial-gradient(circle at 50% 100%, #fff 0 26px, transparent 27px),
+    radial-gradient(circle at 82% 100%, #fff 0 20px, transparent 21px);
+  filter: drop-shadow(0 -3px 4px rgba(6, 38, 92, 0.07));
+}
+
+/* ------------------------------------------------------------------ */
+/* Split-flap board cells                                              */
+/* ------------------------------------------------------------------ */
+.flap {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #0a2a5e 0%,
+    #0d3b78 48%,
+    #0f3f80 52%,
+    #0b2d66 100%
+  );
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+.flap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 1px solid rgba(0, 0, 0, 0.28);
+}
+
+/* Marquee track */
+.marquee-track {
+  display: flex;
+  gap: 2.6rem;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+.marquee-track > * {
+  flex: none;
+}
+
+/* Sky-map dotted background */
+.bg-map {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+}
+
+/* Boarding-pass perforation */
+.perforation {
+  border-top: 2px dashed rgba(6, 38, 92, 0.18);
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion: flatten everything                                  */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
