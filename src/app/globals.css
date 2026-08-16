@@ -21,6 +21,8 @@
   --dog-dark: #b9783f;
   --sunset-a: #ff9a5c;
   --sunset-b: #ff6fa5;
+  --font-display: "Fredoka Variable", system-ui, sans-serif;
+  --font-sans: "Nunito Variable", system-ui, sans-serif;
   color-scheme: light;
 }
 
