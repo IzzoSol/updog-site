@@ -10,8 +10,10 @@ const NAV = [
   { href: "#token", label: "Token" },
   { href: "#flight-plan", label: "Plan" },
   { href: "#pack", label: "Pack" },
+  { href: "#pfp", label: "PFP" },
   { href: "#boarding-pass", label: "Ticket" },
   { href: "#signal", label: "Share" },
+  { href: "/dogpaper", label: "Dogpaper" },
 ];
 
 /**

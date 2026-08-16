@@ -5,6 +5,7 @@ import { AltitudeDashboard } from "@/components/dashboard/AltitudeDashboard";
 import { TokenPanel } from "@/components/token/TokenPanel";
 import { FlightPlan } from "@/components/roadmap/FlightPlan";
 import { Gallery } from "@/components/gallery/Gallery";
+import { PfpGenerator } from "@/components/pfp/PfpGenerator";
 import { ShareDog } from "@/components/share/ShareDog";
 import { BoardingPass } from "@/components/boarding/BoardingPass";
 import { FinalCta } from "@/components/finalCta/FinalCta";
@@ -28,6 +29,7 @@ export default function Page() {
       <TokenPanel />
       <FlightPlan />
       <Gallery />
+      <PfpGenerator />
       <ShareDog />
       <FinalCta />
     </>
