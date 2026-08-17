@@ -216,7 +216,8 @@ export default function DogpaperPage() {
             <li>• Participation is optional; never risk more than you can afford to lose.</li>
           </ul>
           <p className="mt-4 text-sm font-semibold text-navy/70">
-            Intended chain: [TBD]. Chain details will be shared through verified official channels.
+            Intended chain: [TBD]. Intended protocol: Fetch — details [TBD]. All chain and protocol details will be
+            shared through verified official channels.
           </p>
         </Card>
 
